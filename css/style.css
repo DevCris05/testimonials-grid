@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --bg-card-one: hsl(263, 55%, 52%);
+  --bg-card-two: hsl(217, 19%, 35%);
+  --bg-card-three: hsl(0, 0%, 100%);
+  --bg-card-four: hsl(219, 29%, 14%);
+  --bg-card-five: hsl(210, 46%, 95%);
+  --bg-body: hsl(0, 0%, 81%);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,161 +16,144 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  font-family: "Barlow Semi Condensed", sans-serif;
   font-size: 13px;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background-color: var(--bg-body);
 }
+
 .container {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-areas:
-    "tarjeta1"
-    "tarjeta2"
-    "tarjeta3"
-    "tarjeta4"
-    "tarjeta5";
-  grid-gap: 20px;
+
+  padding: 50px 20px;
+  gap: 20px;
 }
 
 .target {
+  width: 100%;
   border-radius: 10px;
-  box-shadow: 0 0 20px 5px hsl(0, 0%, 81%);
-  overflow: hidden;
-  padding: 30px;
+  padding: 30px 25px;
 }
+
 .profile {
   display: flex;
-  gap: 20px;
-}
-.container-img img {
-  border-radius: 100%;
-  width: 40px;
-  border: 3px solid hsla(210, 46%, 95%, 0.616);
+  align-items: center;
+  margin-bottom: 20px;
 }
 
+.container-img {
+  border-radius: 100px;
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.photo {
+  width: 100%;
+}
+.profile-text {
+  color: var(--bg-card-three);
+}
+
+.name {
+  font-weight: 500;
+}
+.verified {
+  opacity: 0.5;
+}
+.text {
+  color: var(--bg-card-three);
+}
+.description {
+  font-size: 1.59em;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.testimony {
+  opacity: 0.5;
+  font-size: 1.11em;
+}
 .card_one {
-  grid-area: tarjeta1;
-  background-color: hsl(263, 55%, 52%);
+  background-color: var(--bg-card-one);
   background-image: url("../images/bg-pattern-quotation.svg");
   background-repeat: no-repeat;
-  background-position: 90% 0;
+  background-position: 80% 0;
+  background-size: 120px;
 }
-
 .card_two {
-  grid-area: tarjeta2;
-  background-color: hsl(217, 19%, 35%);
+  background-color: var(--bg-card-two);
 }
-
 .card_three {
-  grid-area: tarjeta3;
-  background-color: hsl(0, 0%, 81%);
+  background-color: var(--bg-card-three);
 }
-
 .card_four {
-  grid-area: tarjeta4;
-  background-color: hsl(219, 29%, 14%);
+  background-color: var(--bg-card-four);
 }
-
 .card_five {
-  grid-area: tarjeta5;
-  background-color: hsl(210, 46%, 95%);
+  background-color: var(--bg-card-five);
 }
 
-.profile-text .name {
-  font-weight: 700;
-  font-size: 1.2em;
-  color: hsla(0, 0%, 81%);
+.card_one .container-img {
+  border: 3px solid hsl(263, 83%, 68%);
 }
 
-.profile-text .verified {
-  color: hsla(0, 0%, 81%);
-  opacity: 50%;
-  font-size: 1.1em;
+.card_four .container-img {
+  border: 3px solid hsl(263, 100%, 57%);
 }
 
-.card_three .profile-text .name,
-.card_five .profile-text .name {
-  color: hsl(219, 29%, 14%);
-  opacity: 50%;
+.card_three .profile-text,
+.card_five .profile-text {
+  color: var(--bg-card-four);
+  opacity: 1;
+}
+
+.card_three .text,
+.card_five .text {
+  color: var(--bg-card-four);
+  opacity: 1;
 }
 
 .card_three .profile-text .verified,
 .card_five .profile-text .verified {
-  color: hsl(219, 29%, 14%);
-  opacity: 50%;
+  opacity: 0.7;
 }
 
-.text .description {
-  margin-top: 20px;
-  margin-bottom: 15px;
-  font-weight: 700;
-  font-size: 1.8em;
-  color: hsla(0, 0%, 81%);
-}
-
-.text .testimony {
-  color: hsla(0, 0%, 81%);
-  opacity: 70%;
-  font-size: 1.2em;
-}
-
-.card_three .text .description,
-.card_five .text .description {
-  color: hsl(219, 29%, 14%);
-  opacity: 70%;
-}
 .card_three .text .testimony,
 .card_five .text .testimony {
-  color: hsl(219, 29%, 14%);
-  opacity: 70%;
+  opacity: 0.7;
 }
 
-@media screen and (min-width: 950px) {
-  body {
+@media screen and (min-width: 1100px) {
+  .container {
     width: 100%;
     height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    grid-template-rows: repeat(2, 300px);
+    gap: 25px;
+    padding: 40px 200px;
+    place-content: center;
   }
-
-  .container {
-    max-width: 1200px;
-    height: 700px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-areas:
-      "tarjeta1 tarjeta1 tarjeta2 tarjeta5"
-      "tarjeta3 tarjeta4 tarjeta4 tarjeta5";
-  }
-
   .card_one {
     grid-column: 1/3;
     grid-row: 1;
   }
-
   .card_two {
     grid-column: 3/4;
     grid-row: 1;
   }
-
   .card_three {
+    grid-row: 2;
     grid-column: 1/2;
-    grid-row: 2;
   }
-
   .card_four {
-    grid-column: 2/4;
     grid-row: 2;
+    grid-column: 2/4;
   }
-
   .card_five {
     grid-column: 4;
     grid-row: 1/3;
-  }
-
-  .text .description {
-    margin-top: 15px;
-    margin-bottom: 15px;
   }
 }
